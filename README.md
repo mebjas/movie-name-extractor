@@ -16,8 +16,9 @@ movie information extraction
 Replace the "." with " " or white space to get name like
 <pre>Iron Man 3 213 3D 18p</pre>
 
->Now the movie is of From **[name] [version] [year] [3D/2D] [resolution]**
+>Now the movie is of From 
 
+<pre>[name] [version] [year] [3D/2D] [resolution]</pre>
 >So now we need to parse this kind of name to get all information!
 
 Parsing can be done using different **regex filters**
