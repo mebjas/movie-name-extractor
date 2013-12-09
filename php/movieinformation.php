@@ -70,6 +70,11 @@ function getmovieDetails($str)
 		$output['resolution'] = $out[0][0];
 	}
 	
+	/**
+	 * now save the filtered filename as movie title
+	 */
+	$output['title'] = $str;
+	
 	return $output;
 } 
 
