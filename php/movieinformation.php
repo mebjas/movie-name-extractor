@@ -23,13 +23,29 @@ function getmovieDetails($str)
 	$str = str_replace("."," ",$str); 
 	 
 	/**
-	 * code to get information like [s01e5]
+	 * code to get information like [s01e5] or (2x23)
+	 * it extract infrmation of form
+	 * season = 1
+	 * episode_no = 5 from first case
+	 * expecting movie not to contial both : in that case first one will be considered
 	 */
-	$regex = "/[.*?]/i";
+	$regex = "/\[.*?\]|\(.*?\)/";
 	preg_match_all($regex,$str,$out, PREG_PATTERN_ORDER);
-	if(count($out) && count($out[0]))
+	if(count($out) && count($out[0]) &&($out[0][0] != "" ))
 	{
-		//incomplete
+		foreach($out[0] as $o)
+		{
+			$str = str_replace($o,"",$str);
+			$regex = "/s(\d{1,2})e(\d{1,3})|(\d{1,2})x(\d{1,3})/";
+			preg_match_all($regex,$o,$secOut, PREG_PATTERN_ORDER);
+			if(count($secOut) && count($secOut[0]))
+			{
+				if(count($secOut[1]) && ($secOut[1][0] != "" ))$output['season'] = $secOut[1][0];
+				else if(count($secOut[3]) && ($secOut[3][0] != "" ))$output['season'] = $secOut[3][0];
+				if(count($secOut[2]) && ($secOut[2][0] != "" ))$output['episode_no'] = $secOut[2][0];
+				else if(count($secOut[4]) && ($secOut[4][0] != "" ))$output['episode_no'] = $secOut[4][0];
+			}
+		}
 	}
 	
 	/**
