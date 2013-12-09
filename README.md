@@ -1,4 +1,4 @@
-movie-info-extractor
+movie information extraction
 ====================
 
 >code to extract movie name out of file name
