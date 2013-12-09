@@ -18,6 +18,11 @@ function getmovieDetails($str)
 	$output = array();
 	
 	/**
+	 * replace "." with spaces
+	 */
+	$str = str_replace("."," ",$str); 
+	 
+	/**
 	 * code to get information like [s01e5]
 	 */
 	$regex = "/[.*?]/i";
