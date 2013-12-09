@@ -22,3 +22,15 @@ Array
     [title] => Iron Man 3   
 )
 </pre>
+
+Another example for a **serial**
+<pre>print_r(getmovieDetails("Breaking Bad [s2e13]"));</pre>
+**output**
+<pre>
+Array
+(
+    [season] => 2
+    [episode_no] => 13
+    [title] => Breaking Bad 
+)
+</pre>
