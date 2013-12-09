@@ -59,7 +59,18 @@ function getmovieDetails($str)
 	}
 	
 	/**
-	 * task 3: identify and replace movie year
+	 * task 3: identify and replace resolution
+	 */
+	$regex = "/\d{1,4}p|\d{1,4}P/i";
+	preg_match_all($regex,$str,$out, PREG_PATTERN_ORDER);
+	if(count($out) && count($out[0]))
+	{
+		$str = str_replace($out[0][0],"",$str);
+		$output['resolution'] = $out[0][0];
+	}
+	
+	/**
+	 * task 4: identify and replace movie year
 	 */
 	$regex = "/\d{3,4}/i";
 	preg_match_all($regex,$str,$out, PREG_PATTERN_ORDER);
@@ -80,16 +91,7 @@ function getmovieDetails($str)
 		$output['dimension'] = $out[0][0];
 	}
 	
-	/**
-	 * task 4: identify and replace resolution
-	 */
-	$regex = "/\d{1,4}p|\d{1,4}P/i";
-	preg_match_all($regex,$str,$out, PREG_PATTERN_ORDER);
-	if(count($out) && count($out[0]))
-	{
-		$str = str_replace($out[0][0],"",$str);
-		$output['resolution'] = $out[0][0];
-	}
+	
 	
 	/**
 	 * now save the filtered filename as movie title
