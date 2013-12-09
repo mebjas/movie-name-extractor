@@ -3,10 +3,10 @@ movie information extraction
 
 >code to extract movie name out of file name
 
-**step 1:** regex filter 1: to remove all data in () and []
+**step 1:** regex filter 1: to remove all data in () and [] after extracting information like season no / episode no from it. Regular expressions used are: 
 <pre>
-"/\(.*?\)/i"
-"/\[.*?\]/i"
+  "/\[.*?\]|\(.*?\)/"
+  "/s(\d{1,2})e(\d{1,3})|(\d{1,2})x(\d{1,3})/";
 </pre>
 
 
@@ -41,19 +41,4 @@ And from this we can generate information like
   Dimension: 3D
 </pre>
 
-<hr>
-**in case of serials** we have names like:
-<pre>Breaking Bad - [2x12] - Phoenix</pre>
-which become like
-<pre>Breaking Bad - - Phoenix</pre>
-after **step 1**
-So if we ignore contents after symbols other than "." we get
-<pre>Breaking Bad</pre>
-and from the filtered text (in **regex**) like
-<pre>[s2e11]</pre>
-we can parse it to get
-
-**season :** 2nd
-
-**episode :** 11th
 
