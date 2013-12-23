@@ -36,7 +36,7 @@ function getmovieDetails($str)
 		foreach($out[0] as $o)
 		{
 			$str = str_replace($o,"",$str);
-			$regex = "/s(\d{1,2})e(\d{1,3})|(\d{1,2})x(\d{1,3})/";
+			$regex = "/s(\d{1,})e(\d{1,}\b)|(\d{1,})x(\d{1,}\b)/Ui";
 			preg_match_all($regex,$o,$secOut, PREG_PATTERN_ORDER);
 			if(count($secOut) && count($secOut[0]))
 			{
@@ -49,9 +49,54 @@ function getmovieDetails($str)
 	}
 	
 	/**
+	 * code to get information like season 05 or s09 
+	 * not enclosed in [] or ()
+	 * similar to previos case
+     */
+	$regex = "/season\s?(\d{1,})|s(\d{1,})/Ui";
+	preg_match_all($regex,$str,$out, PREG_PATTERN_ORDER);
+	if(count($out) && count($out[0]) &&($out[0][0] != "" ))
+	{
+		$str = str_replace($out[0][0],"",$str);
+		if($out[1][0] != "")
+			$output['season'] = $out[1][0];
+		else if($out[2][0] != "")
+			$output['season'] = $out[2][0];	
+	}
+	
+	/**
+	 * code to get information like episode 09 or E01
+	 * not enclosed in [] or ()
+	 * similar to previos case
+     */
+	$regex = "/episode\s?(\d{1,})\s|e(\d{1,}\b)/Ui";
+	preg_match_all($regex,$str,$out, PREG_PATTERN_ORDER);
+	if(count($out) && count($out[0]) &&($out[0][0] != "" ))
+	{
+		$str = str_replace($out[0][0],"",$str);
+		if($out[1][0] != "")
+			$output['episode_no'] = $out[1][0];
+		else if($out[2][0] != "")
+			$output['episode_no'] = $out[2][0];	
+	}
+	
+	/**
+	 * code to get information from season|episode information encoded in format like 11X13 
+	 * not between [] or ()
+	 */
+	$regex = "/(\d{1,})x(\d{1,}\b)/Ui";
+	preg_match_all($regex,$str,$out, PREG_PATTERN_ORDER);
+	if(count($out) && count($out[0]) &&($out[0][0] != "" ))
+	{
+		$str = str_replace($out[0][0],"",$str);
+		if($out[1][0] != "") $output['season'] = $out[1][0];
+		if($out[2][0] != "")$output['episode_no'] = $out[2][0];	
+	}
+	
+	/**
 	 * task 2: identify the part of movie
 	 */
-	$regex = "/\b\d /";
+	$regex = "/\b\d /Ui";
 	preg_match_all($regex,$str,$out,PREG_PATTERN_ORDER);
 	if(count($out) && count($out[0]))
 	{
@@ -61,7 +106,7 @@ function getmovieDetails($str)
 	/**
 	 * task 3: identify and replace resolution
 	 */
-	$regex = "/\d{1,4}p|\d{1,4}P/i";
+	$regex = "/\d{1,4}p|\d{1,4}P/Ui";
 	preg_match_all($regex,$str,$out, PREG_PATTERN_ORDER);
 	if(count($out) && count($out[0]))
 	{
@@ -72,7 +117,7 @@ function getmovieDetails($str)
 	/**
 	 * task 4: identify and replace movie year
 	 */
-	$regex = "/\d{3,4}/i";
+	$regex = "/\d{3,4}/Ui";
 	preg_match_all($regex,$str,$out, PREG_PATTERN_ORDER);
 	if(count($out) && count($out[0]))
 	{
@@ -83,7 +128,7 @@ function getmovieDetails($str)
 	/**
 	 * task 4: identify and replace 2d/3d i.e. dimension
 	 */
-	$regex = "/[0-9]{1}D|[0-9]{1}d/i";
+	$regex = "/[0-9]{1}D|[0-9]{1}d/Ui";
 	preg_match_all($regex,$str,$out, PREG_PATTERN_ORDER);
 	if(count($out) && count($out[0]))
 	{
@@ -99,7 +144,7 @@ function getmovieDetails($str)
 	$output['title'] = $str;
 	
 	return $output;
-} 
+}  
 
 
 
