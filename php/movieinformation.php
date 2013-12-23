@@ -52,7 +52,7 @@ function getmovieDetails($str)
 	 * code to get information like season 05 or s09 
 	 * not enclosed in [] or ()
 	 * similar to previos case
-     */
+	 */
 	$regex = "/season\s?(\d{1,})|s(\d{1,})/Ui";
 	preg_match_all($regex,$str,$out, PREG_PATTERN_ORDER);
 	if(count($out) && count($out[0]) &&($out[0][0] != "" ))
@@ -68,7 +68,7 @@ function getmovieDetails($str)
 	 * code to get information like episode 09 or E01
 	 * not enclosed in [] or ()
 	 * similar to previos case
-     */
+	 */
 	$regex = "/episode\s?(\d{1,})\s|e(\d{1,}\b)/Ui";
 	preg_match_all($regex,$str,$out, PREG_PATTERN_ORDER);
 	if(count($out) && count($out[0]) &&($out[0][0] != "" ))
