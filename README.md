@@ -1,5 +1,7 @@
 movie information extraction
 ====================
+[![Build Status](https://travis-ci.org/mebjas/movie-name-extractor.svg?branch=master)](https://travis-ci.org/mebjas/movie-name-extractor)
+
 
 >code to extract movie name out of file name
 
