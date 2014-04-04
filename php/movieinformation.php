@@ -117,7 +117,7 @@ function getmovieDetails($str)
 	/**
 	 * task 4: identify and replace movie year
 	 */
-	$regex = "/\d{3,4}/Ui";
+	$regex = "/\d{4}|\d{3}/Ui";
 	preg_match_all($regex,$str,$out, PREG_PATTERN_ORDER);
 	if(count($out) && count($out[0]))
 	{
@@ -136,13 +136,19 @@ function getmovieDetails($str)
 		$output['dimension'] = $out[0][0];
 	}
 	
-	
-	
+	/**
+	 * trimming final whitespaces
+	 */
+	$length = strlen($str);
+	while($str[$length-1] == " ")
+		$length--;
+	$str = substr($str, 0, $length);
+
 	/**
 	 * now save the filtered filename as movie title
 	 */
 	$output['title'] = $str;
-	
+
 	return $output;
 }  
 
