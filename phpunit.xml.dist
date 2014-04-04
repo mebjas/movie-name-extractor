@@ -7,14 +7,6 @@
         <ini name="error_reporting" value="E_ALL"/>
     </php>
     <testsuite name="Movie name extractor">
-<<<<<<< HEAD
         <directory>./test/mne.php</directory>
-=======
-<<<<<<< HEAD
-        <directory>./test/mne.php</directory>
-=======
-        <directory>./test</directory>
->>>>>>> cbb8d9731bb92e12d7d2b3c5af33716403e4005e
->>>>>>> 8f6b1f43ec840f26397eb720ecc2cf1fb6147dc0
     </testsuite>
 </phpunit>
