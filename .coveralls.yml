@@ -1,1 +1,3 @@
-repo_token: Ev8odVmFvT3kas9PJkqnlWiH7io6r4KNU
+src_dir: ./php/
+coverage_clover: build/logs/clover.xml
+json_path: build/logs/coveralls-upload.json
