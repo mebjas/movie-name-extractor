@@ -1,8 +1,16 @@
 movie information extraction
 ====================
-[![Build Status](https://travis-ci.org/mebjas/movie-name-extractor.svg?branch=master)](https://travis-ci.org/mebjas/movie-name-extractor) ![dependency badge](http://img.shields.io/gemnasium/mathiasbynens/he.svg)
 
+
+**Continous Integration**  
+[![Build Status](https://travis-ci.org/mebjas/movie-name-extractor.svg?branch=master)](https://travis-ci.org/mebjas/movie-name-extractor) 
+
+**Code coverage:**  
 [![Coverage Status](https://coveralls.io/repos/mebjas/movie-name-extractor/badge.png)](https://coveralls.io/r/mebjas/movie-name-extractor)
+
+
+
+
 
 >code to extract movie name out of file name
 
@@ -45,4 +53,4 @@ And from this we can generate information like
   Dimension: 3D
 </pre>
 
-
+![dependency badge](http://img.shields.io/gemnasium/mathiasbynens/he.svg)
