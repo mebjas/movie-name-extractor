@@ -1,7 +1,8 @@
 movie information extraction
 ====================
-[![Build Status](https://travis-ci.org/mebjas/movie-name-extractor.svg?branch=master)](https://travis-ci.org/mebjas/movie-name-extractor)  [![Coverage Status](https://coveralls.io/repos/mebjas/movie-name-extractor/badge.png)](https://coveralls.io/r/mebjas/movie-name-extractor) ![dependency badge](http://img.shields.io/gemnasium/mathiasbynens/he.svg)
+[![Build Status](https://travis-ci.org/mebjas/movie-name-extractor.svg?branch=master)](https://travis-ci.org/mebjas/movie-name-extractor) ![dependency badge](http://img.shields.io/gemnasium/mathiasbynens/he.svg)
 
+[![Coverage Status](https://coveralls.io/repos/mebjas/movie-name-extractor/badge.png)](https://coveralls.io/r/mebjas/movie-name-extractor)
 
 >code to extract movie name out of file name
 
