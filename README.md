@@ -11,7 +11,6 @@ movie information extraction
 
 
 
-
 >code to extract movie name out of file name
 
 **step 1:** regex filter 1: to remove all data in () and [] after extracting information like season no / episode no from it. Regular expressions used are: 
@@ -53,4 +52,5 @@ And from this we can generate information like
   Dimension: 3D
 </pre>
 
-![dependency badge](http://img.shields.io/gemnasium/mathiasbynens/he.svg)
+**Dependencies:**<br>
+[![Dependency Status](https://gemnasium.com/mebjas/movie-name-extractor.svg)](https://gemnasium.com/mebjas/movie-name-extractor)
