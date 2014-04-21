@@ -14,7 +14,7 @@ function getmovieDetails($str) {
 	/**
 	 * declaring return variable as array
 	 */
-	$output = [];
+	$output = array();	//[] doesn't work with 5.3
 	
 	/**
 	 * replace "." with spaces
